@@ -1,7 +1,9 @@
 package com.codeagles.springbooteventdemo.event;
 
-import org.springframework.context.ApplicationListener;
+import com.codeagles.springbooteventdemo.event.common.MyCustomCommonEvent;
+import lombok.SneakyThrows;
 import org.springframework.context.event.EventListener;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,10 +14,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class MyCustomEventAnnotationListener {
 
+    @Async
     @EventListener
     public void handleEvent(MyCustomEvent event) {
         String message = event.getMessage();
-        System.out.println("Annotation Received custom event - " + message);
+        System.out.println("Annotation Received custom event - " + message + " threadName: " + Thread.currentThread().getName());
         // 这里可以添加更多的处理逻辑
     }
 }

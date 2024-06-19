@@ -1,5 +1,6 @@
 package com.codeagles.springbooteventdemo;
 
+import com.codeagles.springbooteventdemo.event.common.EventCommonPublisher;
 import com.codeagles.springbooteventdemo.event.EventPublisher;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,8 @@ class SpringbootEventDemoApplicationTests {
 
     @Autowired
     private EventPublisher eventPublisher;
+    @Autowired
+    private EventCommonPublisher eventCommonPublisher;
 
     @Test
     void contextLoads() {
